@@ -1,0 +1,19 @@
+INFO  2021-08-11 11:51:35 [JavaFX Application Thread] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:77) - С клиента на сервер отправлена команда LOGIN с аргументами [Mira, 111]
+INFO  2021-08-11 11:51:49 [JavaFX Application Thread] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:77) - С клиента на сервер отправлена команда LOGIN с аргументами [Bob, 111]
+INFO  2021-08-11 11:53:48 [JavaFX Application Thread] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:77) - С клиента на сервер отправлена команда LOGIN с аргументами [Mina, 111]
+INFO  2021-08-11 11:53:48 [nioEventLoopGroup-2-1] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:77) - С клиента на сервер отправлена команда FILESLIST с аргументами [Mina]
+INFO  2021-08-11 11:53:55 [JavaFX Application Thread] ru.gb.client.controller.Controller (Controller.java:180) - Клиенту показан Alert Не выбран файл для загрузки в облаке
+INFO  2021-08-11 11:53:58 [JavaFX Application Thread] ru.gb.client.controller.Controller (Controller.java:259) - Отправлена команда UPLOAD для файла let.pdf по пути C:\materials\let.pdf от клиента Mina
+INFO  2021-08-11 11:53:58 [JavaFX Application Thread] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:77) - С клиента на сервер отправлена команда UPLOAD с аргументами [let.pdf, C:\materials\let.pdf, Mina, 536213]
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-2-1] ru.gb.client.core.handler.ClientInboundCommandHandler (ClientInboundCommandHandler.java:31) - Получена с сервера команда READY_TO_UPLOAD со списком аргументов: [let.pdf, C:\materials\let.pdf, Mina, 536213]
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-2-1] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:84) - Началась передача файла на сервер по пути C:\materials\let.pdf
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-2-1] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:85) - Файл передан
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-2-1] ru.gb.client.core.handler.ClientInboundCommandHandler (ClientInboundCommandHandler.java:38) - Получена с сервера команда UPLOAD_FINISHED для файла [let.pdf, Mina]
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-2-1] ru.gb.client.core.handler.ClientInboundCommandHandler (ClientInboundCommandHandler.java:62) - На сервер отправлена команда FILESLIST с аргументами [Ljava.lang.String;@1920cfd9
+INFO  2021-08-11 11:54:17 [JavaFX Application Thread] ru.gb.client.controller.Controller (Controller.java:259) - Отправлена команда UPLOAD для файла music.mp3 по пути C:\materials\music.mp3 от клиента Mina
+INFO  2021-08-11 11:54:17 [JavaFX Application Thread] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:77) - С клиента на сервер отправлена команда UPLOAD с аргументами [music.mp3, C:\materials\music.mp3, Mina, 5588594]
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-2-1] ru.gb.client.core.handler.ClientInboundCommandHandler (ClientInboundCommandHandler.java:31) - Получена с сервера команда READY_TO_UPLOAD со списком аргументов: [music.mp3, C:\materials\music.mp3, Mina, 5588594]
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-2-1] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:84) - Началась передача файла на сервер по пути C:\materials\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-2-1] ru.gb.client.core.NettyNetworkService (NettyNetworkService.java:85) - Файл передан
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-2-1] ru.gb.client.core.handler.ClientInboundCommandHandler (ClientInboundCommandHandler.java:38) - Получена с сервера команда UPLOAD_FINISHED для файла [music.mp3, Mina]
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-2-1] ru.gb.client.core.handler.ClientInboundCommandHandler (ClientInboundCommandHandler.java:62) - На сервер отправлена команда FILESLIST с аргументами [Ljava.lang.String;@3f9c89c7

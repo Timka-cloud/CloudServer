@@ -1,0 +1,220 @@
+INFO  2021-08-11 11:48:32 [main] ru.gb.server.core.NettyServerService (NettyServerService.java:53) - Сервер запущен
+INFO  2021-08-11 11:48:33 [main] ru.gb.server.service.impl.databaseConnection.DatabaseConnectionServiceImpl (DatabaseConnectionServiceImpl.java:36) - Сервер подключен к базе данных
+ERROR 2021-08-11 11:51:22 [nioEventLoopGroup-3-1] ru.gb.server.service.impl.databaseConnection.AuthenticationServiceImpl (AuthenticationServiceImpl.java:34) - Throwing
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: clients)
+	at org.sqlite.core.DB.newSQLException(DB.java:1012) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:1024) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:989) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:134) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:257) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:45) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:25) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:35) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:241) ~[sqlite-jdbc-3.34.0.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205) ~[sqlite-jdbc-3.34.0.jar:?]
+	at ru.gb.server.service.impl.databaseConnection.AuthenticationServiceImpl.createPreparedStatements(AuthenticationServiceImpl.java:30) [classes/:?]
+	at ru.gb.server.service.impl.databaseConnection.AuthenticationServiceImpl.<init>(AuthenticationServiceImpl.java:25) [classes/:?]
+	at ru.gb.server.factory.Factory.getAuthenticationService(Factory.java:38) [classes/:?]
+	at ru.gb.server.service.impl.command.AuthenticationCommand.<init>(AuthenticationCommand.java:20) [classes/:?]
+	at ru.gb.server.factory.Factory.getCommandServices(Factory.java:30) [classes/:?]
+	at ru.gb.server.service.impl.CommandDictionaryServiceImpl.getCommandDictionary(CommandDictionaryServiceImpl.java:22) [classes/:?]
+	at ru.gb.server.service.impl.CommandDictionaryServiceImpl.<init>(CommandDictionaryServiceImpl.java:18) [classes/:?]
+	at ru.gb.server.factory.Factory.getCommandDictionaryService(Factory.java:26) [classes/:?]
+	at ru.gb.server.core.handler.CommandInboundHandler.<init>(CommandInboundHandler.java:32) [classes/:?]
+	at ru.gb.server.core.NettyServerService$1.initChannel(NettyServerService.java:46) [classes/:?]
+	at ru.gb.server.core.NettyServerService$1.initChannel(NettyServerService.java:40) [classes/:?]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:938) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:609) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:46) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1463) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1115) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:650) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:514) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:429) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:486) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_281]
+ERROR 2021-08-11 11:51:36 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:102) - Throwing
+java.lang.NullPointerException: null
+	at ru.gb.server.service.impl.databaseConnection.AuthenticationServiceImpl.isClientRegistered(AuthenticationServiceImpl.java:42) ~[classes/:?]
+	at ru.gb.server.service.impl.command.AuthenticationCommand.process(AuthenticationCommand.java:34) ~[classes/:?]
+	at ru.gb.server.service.impl.command.AuthenticationCommand.processCommand(AuthenticationCommand.java:30) ~[classes/:?]
+	at ru.gb.server.service.impl.command.AuthenticationCommand.processCommand(AuthenticationCommand.java:14) ~[classes/:?]
+	at ru.gb.server.service.impl.CommandDictionaryServiceImpl.processCommand(CommandDictionaryServiceImpl.java:34) ~[classes/:?]
+	at ru.gb.server.core.handler.CommandInboundHandler.createLoginAccept(CommandInboundHandler.java:73) ~[classes/:?]
+	at ru.gb.server.core.handler.CommandInboundHandler.channelRead0(CommandInboundHandler.java:38) ~[classes/:?]
+	at ru.gb.server.core.handler.CommandInboundHandler.channelRead0(CommandInboundHandler.java:25) ~[classes/:?]
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:99) ~[netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_281]
+ERROR 2021-08-11 11:51:49 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:102) - Throwing
+java.lang.NullPointerException: null
+	at ru.gb.server.service.impl.databaseConnection.AuthenticationServiceImpl.isClientRegistered(AuthenticationServiceImpl.java:42) ~[classes/:?]
+	at ru.gb.server.service.impl.command.AuthenticationCommand.process(AuthenticationCommand.java:34) ~[classes/:?]
+	at ru.gb.server.service.impl.command.AuthenticationCommand.processCommand(AuthenticationCommand.java:30) ~[classes/:?]
+	at ru.gb.server.service.impl.command.AuthenticationCommand.processCommand(AuthenticationCommand.java:14) ~[classes/:?]
+	at ru.gb.server.service.impl.CommandDictionaryServiceImpl.processCommand(CommandDictionaryServiceImpl.java:34) ~[classes/:?]
+	at ru.gb.server.core.handler.CommandInboundHandler.createLoginAccept(CommandInboundHandler.java:73) ~[classes/:?]
+	at ru.gb.server.core.handler.CommandInboundHandler.channelRead0(CommandInboundHandler.java:38) ~[classes/:?]
+	at ru.gb.server.core.handler.CommandInboundHandler.channelRead0(CommandInboundHandler.java:25) ~[classes/:?]
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:99) ~[netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.65.Final.jar:4.1.65.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_281]
+INFO  2021-08-11 11:53:39 [main] ru.gb.server.core.NettyServerService (NettyServerService.java:53) - Сервер запущен
+INFO  2021-08-11 11:53:39 [main] ru.gb.server.service.impl.databaseConnection.DatabaseConnectionServiceImpl (DatabaseConnectionServiceImpl.java:36) - Сервер подключен к базе данных
+INFO  2021-08-11 11:53:48 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:77) - Клиенту отправляется ответ на запрос авторизации LOGIN_OK[Mina]
+INFO  2021-08-11 11:53:48 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:82) - От клиента на сервер поступила команда FILESLIST (запрос на отправку списка файлов в облаке
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:44) - От клиента на сервере получена команда UPLOAD с аргументами [let.pdf, C:\materials\let.pdf, Mina, 536213]
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:50) - C сервера клиенту отправлена команда READY_TO_UPLOAD с аргументами [let.pdf, C:\materials\let.pdf, Mina, 536213]
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:58 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\let.pdf
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:57) - Файл вычитан
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:62) - На клиент с сервера отправлена команда UPLOAD_FINISHED с аргументами [Ljava.lang.String;@4554843f
+INFO  2021-08-11 11:53:59 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:82) - От клиента на сервер поступила команда FILESLIST (запрос на отправку списка файлов в облаке
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:44) - От клиента на сервере получена команда UPLOAD с аргументами [music.mp3, C:\materials\music.mp3, Mina, 5588594]
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:50) - C сервера клиенту отправлена команда READY_TO_UPLOAD с аргументами [music.mp3, C:\materials\music.mp3, Mina, 5588594]
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:38) - Создан файл и запущен прием фала а сервере по пути C:\Cloud\Mina\\music.mp3
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:57) - Файл вычитан
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.FilesInboundHandler (FilesInboundHandler.java:62) - На клиент с сервера отправлена команда UPLOAD_FINISHED с аргументами [Ljava.lang.String;@3b1b7b37
+INFO  2021-08-11 11:54:17 [nioEventLoopGroup-3-1] ru.gb.server.core.handler.CommandInboundHandler (CommandInboundHandler.java:82) - От клиента на сервер поступила команда FILESLIST (запрос на отправку списка файлов в облаке
